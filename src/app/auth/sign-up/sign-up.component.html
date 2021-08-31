@@ -1,0 +1,63 @@
+<section class="onboarding-container">
+    <div class="onboarding-form-section" layout-align="center center">
+        <div class="onboarding-form-section__inner">
+            <form class="onboarding-form-section__form" [formGroup]="form">
+                <img src="../../../assets/images/logo-full-colored.png" alt="askTolas logo" class="onboarding-form-section__logo" />
+
+                <h1 class="onboarding-form-section__form-heading">Sign Up on aiBot</h1>
+
+                <p class="onboarding-form-section__form-suggestion">
+                    Automate your business with aiBot
+                </p>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Username" type="username" formControlName="userName" />
+                    <mat-error *ngIf="form.get('userName').hasError('required')">
+                        User Name is <strong>required</strong> </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput placeholder="Enter your email" type="email" formControlName="email" />
+                    <mat-error *ngIf="form.get('email').hasError('required')">
+                        Email is <strong>required</strong> </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter password</mat-label>
+                    <input matInput placeholder="Enter password" type="password" formControlName="password" />
+                    <mat-error *ngIf="form.get('password').hasError('required')">
+                        Password is <strong>required</strong> </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm password</mat-label>
+                    <input matInput placeholder="Confirm password" type="password" formControlName="password2" />
+                    <mat-error *ngIf="form.get('password2').hasError('required')">Password and Confirm Password must be match.</mat-error>
+                </mat-form-field>
+
+                <div class="d-flex">
+                    <mat-form-field appearance="outline" class="mr-1">
+                        <mat-label>Company Name</mat-label>
+                        <input matInput placeholder="Company Name" type="company_name" formControlName="company_name" />
+                        <mat-error *ngIf="form.get('company_name').hasError('required')">Company Name is required.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="ml-1">
+                        <mat-label>Employee Count</mat-label>
+                        <input matInput placeholder="Employee Count" type="employee_strength" formControlName="employee_strength" />
+                        <mat-error *ngIf="form.get('employee_strength').hasError('required')">
+                            Employee Count is <strong>required</strong> </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <button mat-button class="bttn bttn-secondary-gradient" [disabled]="form.invalid" (click)="save()">Sign Up</button>
+                <p class="onboarding-form-section__form-next-action">
+                    Already a member ?
+                    <a [routerLink]="['', 'auth', 'login']" class="link">Login to account</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</section>

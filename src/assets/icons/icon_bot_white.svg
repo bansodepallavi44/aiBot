@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="102" viewBox="0 0 72 102">
+  <g id="Group_1918" data-name="Group 1918" transform="translate(-1228 -7841)">
+    <g id="Group_1767" data-name="Group 1767" transform="translate(-54 7661)">
+      <rect id="Rectangle_552" data-name="Rectangle 552" width="70" height="70" transform="translate(1283 180)" fill="none"/>
+      <g id="Group_1766" data-name="Group 1766" transform="translate(1294.667 193.125)">
+        <path id="Subtraction_5" data-name="Subtraction 5" d="M-6736.667-7444.125h-28a9.01,9.01,0,0,1-9-9v-14a9.011,9.011,0,0,1,9-9h28a9.011,9.011,0,0,1,9,9v14A9.01,9.01,0,0,1-6736.667-7444.125Zm-5-23a6.007,6.007,0,0,0-6,6,6.007,6.007,0,0,0,6,6,6.007,6.007,0,0,0,6-6A6.007,6.007,0,0,0-6741.667-7467.125Zm-18,0a6.007,6.007,0,0,0-6,6,6.007,6.007,0,0,0,6,6,6.007,6.007,0,0,0,6-6A6.007,6.007,0,0,0-6759.666-7467.125Z" transform="translate(6774 7489)" fill="#fff"/>
+        <line id="Line_135" data-name="Line 135" y2="16.375" transform="translate(23.333 4)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+      </g>
+    </g>
+    <path id="Rectangle_633" data-name="Rectangle 633" d="M8.5,0h55A8.5,8.5,0,0,1,72,8.5v0A25.5,25.5,0,0,1,46.5,34h-21A25.5,25.5,0,0,1,0,8.5v0A8.5,8.5,0,0,1,8.5,0Z" transform="translate(1228 7909)" fill="#fff"/>
+  </g>
+</svg>

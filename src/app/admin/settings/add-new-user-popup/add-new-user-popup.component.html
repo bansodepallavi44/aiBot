@@ -1,0 +1,66 @@
+<!-- 'popup--edit-user' class will add when popup on edit state -->
+<div class="modal create-new-settings-popup popup--edit-user">
+    <form [formGroup]="form">
+        <div class="modal-header">
+            <h4 class="create-new-settings-popup__heading flex-center">
+                <img src="../../../../assets/icons/icon_edit_user.svg" alt="edit user icon">
+                <!-- <span>{{editMode ? 'Add User' : 'Edit User'}}</span> -->
+            </h4>
+            <a (click)="closeDialog()" class="modal-close">
+                <img src="../../../../assets/icons/icon_cross.svg" alt="icon cross" />
+            </a>
+        </div>
+        <div class="mt-modal-content mat-dialog-content add-category-content">
+            <div class="create-new-settings-popup__user-vector text-center">
+                <img src="../../../../assets/images/create-new-user-vector.png" alt="create new user vector" class="create-new-settings-popup__image" />
+                <h3 class="create-new-settings-popup__heading">
+                    {{editMode ? 'Edit User' : 'Create New User'}}
+                </h3>
+            </div>
+            <div class="create-new-settings-popup-row">
+                <div class="create-new-settings-popup-item">
+                    <h3 class="app-form-label">User Name</h3>
+                    <mat-form-field appearance="outline">
+                        <mat-label>User Name</mat-label>
+                        <input matInput placeholder="User Name" formControlName="username" />
+                    </mat-form-field>
+                </div>
+                <div class="create-new-settings-popup-item">
+                    <h3 class="app-form-label">User Email</h3>
+                    <mat-form-field appearance="outline">
+                        <mat-label>User Email</mat-label>
+                        <input matInput placeholder="User Email" formControlName="email" />
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="create-new-settings-popup-row">
+                <div class="create-new-settings-popup-item">
+                    <h3 class="app-form-label">Select Privilege</h3>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Privilege</mat-label>
+                        <mat-select formControlName="privilege">
+                            <mat-option *ngFor="let privilege of privileges" [value]="privilege.id">{{privilege.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="create-new-settings-popup-item">
+                    <h3 class="app-form-label">Department</h3>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Department</mat-label>
+                        <mat-select formControlName="department">
+                            <mat-option *ngFor="let privilege of privileges" [value]="privilege.id">{{privilege.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button mat-button (click)="closeDialog()" type="button" class="bttn">
+        Cancel
+      </button>
+            <button mat-button type="submit" class="bttn bttn-secondary" (click)="createCollaborators(editMode)">
+        Add User
+      </button>
+        </div>
+    </form>
+</div>

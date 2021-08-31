@@ -1,0 +1,10 @@
+.create-new-bot-popup {
+  width: 100%;
+  max-width: 515px;
+
+  &__heading {
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: $c-gray;
+  }
+}

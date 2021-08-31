@@ -1,0 +1,91 @@
+<div class="boat-training-section">
+  <div class="boat-training-section__header">
+    <a
+      [routerLink]="['', 'admin', 'bot', 'plugins', 'all']"
+      class="boat-training-section__heading flex-center"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <g transform="translate(20 5.5) rotate(90)">
+          <path
+            d="M.5,15V0"
+            transform="translate(6.274 0.75)"
+            fill="none"
+            stroke="#000"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            stroke-width="1.5"
+          />
+          <path
+            d="M12.049,0,6.025,6.05,0,0"
+            transform="translate(0.75 9.7)"
+            fill="none"
+            stroke="#000"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            stroke-width="1.5"
+          />
+        </g>
+      </svg>
+      <span>Back</span>
+    </a>
+  </div>
+
+  <div class="bot-plugins-carousel">
+    <owl-carousel-o [options]="onboardingCarouselOptions">
+      <ng-template carouselSlide>
+        <img src="../../../../assets/images/plugin_slide-1.png" alt="slide 1" />
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../../../assets/images/plugin_slide-1.png" alt="slide 1" />
+      </ng-template>
+      <ng-template carouselSlide>
+        <img src="../../../../assets/images/plugin_slide-1.png" alt="slide 1" />
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+
+  <div class="bot-plugins-tabs">
+    <mat-tab-group>
+      <mat-tab label="Information">
+        <p>
+          The Salesforce integration lets you create leads and contacts from
+          chats, archives, and the Visitor section at a good clip. Easily search
+          the Salesforce contacts directly from LiveChat as well as save chat
+          transcripts as Cases or Objects in your Salesforce account. You can
+          finally spend more time talking with your customers and less managing
+          contact data.
+        </p>
+        <p>
+          Salesforce Sales Cloud is a platform for managing a sales team and
+          customer relationships. It lets you map out each step of your sales
+          pipeline.
+        </p>
+
+        <p>
+          With this software, you can have a complete view of your customers,
+          including contact information, the actual stage in the pipeline,
+          quotes, the history of interactions as well as internal notes. You are
+          able to gain insights from social media sites such as Linkedin,
+          Twitter or Facebook - right within Salesforce.
+        </p>
+
+        <p>
+          What's more, Salesforce helps you boost productivity by using
+          workflows, which automate your business process. For example, you can
+          automatically assign leads with deals over a certain size to a
+          specific salesperson. Plus, you can forecast sales, analyze the
+          performance of the sales team and make data-driven decisions.
+        </p>
+      </mat-tab>
+      <mat-tab label="Features"> Cards </mat-tab>
+      <mat-tab label="Support"> Emoji </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

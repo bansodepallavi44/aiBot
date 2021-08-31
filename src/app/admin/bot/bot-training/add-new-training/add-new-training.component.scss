@@ -1,0 +1,21 @@
+.chipList{
+    margin: 5px;
+}
+
+::ng-deep{
+
+    .GT>.mat-form-field-wrapper{
+        padding-bottom: 0px;
+    }
+    
+    .GT>.mat-select-panel {
+        margin-top: 50px;
+    }
+} 
+
+.buttonGroup {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+  }

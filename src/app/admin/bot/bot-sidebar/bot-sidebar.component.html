@@ -1,0 +1,65 @@
+<aside class="section-boat__sidebar">
+    <h4 class="section-boat__sidebar-heading">
+        <span>Bots</span>
+    </h4>
+
+    <ul class="section-boat__sidebar-menu">
+        <li class="section-boat__sidebar-menu-item">
+            <a href="" class="section-boat__sidebar-menu-link" [routerLink]="['', 'admin', 'bot', 'all-bots']" routerLinkActive="active">All Bots</a
+      >
+    </li>
+    
+    <li class="section-boat__sidebar-menu-item">
+      <a href="" class="section-boat__sidebar-menu-link">Online Bot</a>
+        </li>
+        <li class="section-boat__sidebar-menu-item">
+            <a href="" class="section-boat__sidebar-menu-link">Not Connected</a>
+        </li>
+    </ul>
+
+    <h4 class="section-boat__sidebar-heading">
+        <span>Workspace</span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <img
+        src="../../../../assets/icons/icon_three_dots.svg"
+        alt="three dots"
+      />
+    </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onAddWorkspace()">
+        <img
+          src="../../../../assets/icons/icon_plus.svg"
+          alt="icon plus"
+          class="mat-menu-item__icon"
+        />
+        <span>Add Workspace</span>
+      </button>
+            <button mat-menu-item>
+        <img
+          src="../../../../assets/icons/icon_delete.svg"
+          alt="icon delete"
+          class="mat-menu-item__icon"
+        />
+        <span>Delete Workspace</span>
+      </button>
+        </mat-menu>
+    </h4>
+    <ul class="section-boat__sidebar-menu">
+        <li class="section-boat__sidebar-menu-item">
+            <a routerLink="/" class="section-boat__sidebar-menu-link active">Default Workspace</a>
+        </li>
+        <li class="section-boat__sidebar-menu-item" *ngFor="let workSpace of workSpaceList">
+            <!-- routerLink="['/',workSpace['name']]" -->
+            <a class="section-boat__sidebar-menu-link active">
+            {{workSpace['name']}}
+          <button mat-menu-item style="margin-left: auto; line-height: 10px; width: 56px; height: 25px;" (click)="deleteWorkSpace($event,workSpace['id'])">
+          <img
+            src="../../../../assets/icons/icon_delete.svg"
+            alt="icon delete"
+            class="mat-menu-item__icon"
+          />
+          </button>
+          </a>
+        </li>
+    </ul>
+</aside>

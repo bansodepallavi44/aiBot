@@ -1,0 +1,131 @@
+<h3 class="section-settings__heading">Team Management</h3>
+
+<div class="section-setting-header">
+    <div class="section-settings__searchbarbox d-flex flex-space-between">
+        <div class="section-settings__searchbox d-flex">
+            <div class="section-settings__searchbar">
+                <img src="../../../../assets/icons/icon_search.svg" alt="search" class="section-settings__search-icon" />
+                <input type="text" placeholder="Search here …." class="form-control" [(ngModel)]="searchKeyword" class="section-settings__search-input" />
+            </div>
+            <div class="section-settings__selectbox">
+                <div class="selectoptionbox team-selectoption">
+                    <h4>Users :</h4>
+                    <mat-form-field>
+                        <mat-select>
+                            <mat-option value="Admin">Admin</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="section-settings__filter-btn">
+                <button class="bttn bttn-secondary bttn-with-icon">
+          <img src="../../../../assets/icons/Icon_Filter.svg" alt="filter" class="section-settings__filter-icon" />
+        </button>
+            </div>
+        </div>
+
+        <button class="bttn bttn-secondary bttn-with-icon" (click)="onCreateNewTeam()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <g id="Group_1601" data-name="Group 1601" transform="translate(-1622 -196)">
+          <rect id="Rectangle_489" data-name="Rectangle 489" width="24" height="24" transform="translate(1622 196)"
+            fill="none" />
+          <path id="Path_2396" data-name="Path 2396" d="M6430,2934.762v13.772" transform="translate(-4796 -2734.077)"
+            fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5" />
+          <path id="Path_2397" data-name="Path 2397" d="M0,0V13.772" transform="translate(1640.886 207.571) rotate(90)"
+            fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5" />
+        </g>
+      </svg>
+      <span>Create New Team</span>
+    </button>
+    </div>
+
+    <div class="table">
+        <table dataSource="dataSource" class="section-settings__table section-settings__team-table">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="app-checkbox">
+              <input type="checkbox" id="allUSersSelect" />
+              <label for="allUSersSelect"></label>
+            </span>
+                    </th>
+                    <th>Group Name</th>
+                    <th>Owner</th>
+                    <th>Users</th>
+                    <th>Creation Date</th>
+                    <th class="text-right">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <svg id="Component_80_1" data-name="Component 80 – 1" xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" viewBox="0 0 24 24">
+                <g id="Group_985" data-name="Group 985" transform="translate(24) rotate(90)">
+                  <rect id="Rectangle_347" data-name="Rectangle 347" width="24" height="24" fill="none" />
+                  <g id="Group_972" data-name="Group 972" transform="translate(4 10)">
+                    <circle id="Ellipse_225" data-name="Ellipse 225" cx="2" cy="2" r="2" />
+                    <circle id="Ellipse_226" data-name="Ellipse 226" cx="2" cy="2" r="2" transform="translate(12)" />
+                    <circle id="Ellipse_227" data-name="Ellipse 227" cx="2" cy="2" r="2" transform="translate(6)" />
+                  </g>
+                </g>
+              </svg>
+            </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                <img src="../../../../assets/icons/icon_delete.svg" alt="icon delete" class="mat-menu-item__icon" />
+                <span>Delete Users</span>
+              </button>
+                        </mat-menu>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let privilege of privileges | searchFilter : searchKeyword;index as i" (click)="getSingleTeam(privilege.id)">
+                    <td>
+                        <span class="app-checkbox">
+              <input type="checkbox" id="user-{{i}}" />
+              <label for="user-{{i}}"></label>
+            </span>
+                    </td>
+                    <td>
+                        <div class="section-settings__user d-flex">
+                            <span class="section-settings__user-placeholder">A</span>
+                            <div class="section-settings__user-detail">
+                                <span class="section-settings__user-name section-settings__team-uname">{{privilege.name}}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{privilege.id}}</td>
+                    <td>
+                        <div class="section-settings__team-user">
+                            <span class="section-settings__team-user-pic">
+                <img src="../../../../assets/images/team-userpic-1.png" alt="team-user-pic" />
+              </span>
+                            <span class="section-settings__team-user-pic">
+                <img src="../../../../assets/images/team-userpic-2.png" alt="team-user-pic" />
+              </span>
+                            <span class="section-settings__team-user-pic">
+                <img src="../../../../assets/images/team-userpic-3.png" alt="team-user-pic" />
+              </span>
+                            <span class="
+                section-settings__user-placeholder
+                section-settings__team-user-pic
+              ">+25</span>
+                        </div>
+                    </td>
+                    <td>{{privilege.created | date: 'dd-MM-yyyy'}}</td>
+                    <td class="section-settings__table-actions text-right">
+                        <span class="section-settings__table-actions-icon" (click)="onSelectUSers($event,privilege)">
+              <img src="../../../../assets/icons/icon_edit.svg" alt="icon edit" />
+            </span>
+                        <span class="section-settings__table-actions-icon">
+              <a (click)="deletePrivilegeGroup($event,privilege.id)">
+                <img src="../../../../assets/icons/icon_delete.svg" alt="icon delete" /></a>
+            </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="section-settings__pagination">
+            <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>

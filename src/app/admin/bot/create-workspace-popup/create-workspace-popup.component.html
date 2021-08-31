@@ -1,0 +1,23 @@
+<div class="modal create-new-bot-popup">
+  <form [formGroup]="workSpaceForm" (ngSubmit)="saveWorkSpace()">
+    <div class="modal-header">
+      <h3 class="create-new-bot-popup__heading">Create Workspace</h3>
+      <button (click)="closeDialog()" class="modal-close">
+        <img src="../../../../assets/icons/icon_cross.svg" alt="icon cross" />
+      </button>
+    </div>
+    <div class="mt-modal-content mat-dialog-content add-category-content">
+      <div>
+        <h3 class="app-form-label">Workspace Details</h3>
+        <mat-form-field appearance="outline">
+          <mat-label>Workspace Name</mat-label>
+          <input formControlName="workspace" matInput placeholder="Enter Workspace Name" autocomplete="off"/>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button mat-button (click)="closeDialog()" type="button" class="bttn">Cancel</button>
+      <button mat-button type="submit" class="bttn bttn-secondary">Create Workspace</button>
+    </div>
+  </form>
+</div>

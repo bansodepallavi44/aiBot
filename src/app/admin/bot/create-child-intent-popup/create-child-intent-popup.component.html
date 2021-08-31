@@ -1,0 +1,36 @@
+<div class="modal create-new-bot-popup">
+  <form>
+    <div class="modal-header">
+      <h3 class="create-new-bot-popup__heading">Create Child Intent</h3>
+      <a (click)="closeDialog()" class="modal-close">
+        <img src="../../../../assets/icons/icon_cross.svg" alt="icon cross" />
+      </a>
+    </div>
+    <div class="mt-modal-content mat-dialog-content add-category-content">
+      <div>
+        <h3 class="app-form-label">Intent Details</h3>
+        <mat-form-field appearance="outline">
+          <mat-label>Intent Details</mat-label>
+          <textarea matInput placeholder="Enter Intent Details" rows="5"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <h3 class="app-form-label">Content Type</h3>
+        <mat-form-field appearance="outline">
+          <mat-label>Content Type</mat-label>
+          <mat-select>
+            <mat-option value="default">Text</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button mat-button (click)="closeDialog()" type="button" class="bttn">
+        Cancel
+      </button>
+      <button mat-button type="submit" class="bttn bttn-secondary">
+        Create Intent
+      </button>
+    </div>
+  </form>
+</div>

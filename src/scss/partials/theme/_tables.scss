@@ -1,0 +1,48 @@
+.table {
+    width: 100%;
+    max-width: 100vw;
+    overflow: auto;
+    box-shadow: 0 5px 5px -3px rgb($c-gray, 0.08), 0 8px 10px 1px rgb($c-gray, 0.08), 0 3px 14px 2px rgb($c-gray, 0.08);
+    margin-bottom: 50px;
+    display: inline-block;
+    @include scrollbar(5px);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+   
+    th {
+        background:rgba($c-chardon,0.2);
+        text-align: left;
+        font-size: 16px;
+        color: $c-secondary;
+
+        &:first-child {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+    }
+
+    th,
+    td {
+        padding: 12px 15px;
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid rgba($c-gray, 0.2);
+        }
+
+        td {
+            font-size: 14px;
+        }
+    }
+
+
+}

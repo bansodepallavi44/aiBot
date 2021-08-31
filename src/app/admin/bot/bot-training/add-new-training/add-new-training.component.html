@@ -1,0 +1,374 @@
+<div class="boat-training-section__add-new-question">
+  <div class="boat-training-section__add-new-question-main">
+    <div class="boat-training-section__add-new-question-header">
+      <button class="flex-center bttn bttn-secondary bttn-with-icon" mat-button (click)="saveBot()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <g
+            id="Group_1601"
+            data-name="Group 1601"
+            transform="translate(-1622 -196)"
+          >
+            <rect
+              id="Rectangle_489"
+              data-name="Rectangle 489"
+              width="24"
+              height="24"
+              transform="translate(1622 196)"
+              fill="none"
+            />
+            <path
+              id="Path_2396"
+              data-name="Path 2396"
+              d="M6430,2934.762v13.772"
+              transform="translate(-4796 -2734.077)"
+              fill="none"
+              stroke="#fff"
+              stroke-linecap="round"
+              stroke-width="1.5"
+            />
+            <path
+              id="Path_2397"
+              data-name="Path 2397"
+              d="M0,0V13.772"
+              transform="translate(1640.886 207.571) rotate(90)"
+              fill="none"
+              stroke="#fff"
+              stroke-linecap="round"
+              stroke-width="1.5"
+            />
+          </g>
+        </svg>
+        <span>Save Changes</span>
+      </button>
+
+      <button
+        class="flex-center bttn color-secondary bttn-with-icon"
+        mat-button 
+      >
+        <svg
+          id="Iconly_Light_Paper"
+          data-name="Iconly/Light/Paper"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <g id="Paper" transform="translate(3.5 2)">
+            <path
+              id="Stroke_1"
+              data-name="Stroke 1"
+              d="M10.488,0H3.835A3.82,3.82,0,0,0,0,3.729V14.442a3.828,3.828,0,0,0,3.742,3.911h8.081a3.887,3.887,0,0,0,3.729-3.911V5.276Z"
+              transform="translate(0.75 0.762)"
+              fill="none"
+              stroke="#f27e2c"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="1.5"
+            />
+            <path
+              id="Stroke_3"
+              data-name="Stroke 3"
+              d="M0,0V2.909A2.574,2.574,0,0,0,2.568,5.484H5.323"
+              transform="translate(10.975 0.75)"
+              fill="none"
+              stroke="#f27e2c"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="1.5"
+            />
+            <path
+              id="Stroke_5"
+              data-name="Stroke 5"
+              d="M5.4.5H0"
+              transform="translate(5.388 12.858)"
+              fill="none"
+              stroke="#f27e2c"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="1.5"
+            />
+            <path
+              id="Stroke_7"
+              data-name="Stroke 7"
+              d="M3.356.5H0"
+              transform="translate(5.387 9.106)"
+              fill="none"
+              stroke="#f27e2c"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="1.5"
+            />
+          </g>
+        </svg>
+        <span>Save and Add New Question</span>
+      </button>
+
+      <button
+        class="flex-center bttn bttn-outlined-secondary bttn-with-icon"
+        mat-button
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="17.5"
+          height="17"
+          viewBox="0 0 17.5 17"
+        >
+          <g
+            id="Group_1766"
+            data-name="Group 1766"
+            transform="translate(-1286.25 -183.75)"
+          >
+            <rect
+              id="Rectangle_553"
+              data-name="Rectangle 553"
+              width="16"
+              height="11"
+              rx="3"
+              transform="translate(1287 189)"
+              fill="none"
+              stroke="#f27e2c"
+              stroke-width="1.5"
+            />
+            <circle
+              id="Ellipse_293"
+              data-name="Ellipse 293"
+              cx="2"
+              cy="2"
+              r="2"
+              transform="translate(1290 192)"
+              fill="#f27e2c"
+            />
+            <circle
+              id="Ellipse_294"
+              data-name="Ellipse 294"
+              cx="2"
+              cy="2"
+              r="2"
+              transform="translate(1296 192)"
+              fill="#f27e2c"
+            />
+            <line
+              id="Line_135"
+              data-name="Line 135"
+              y2="4"
+              transform="translate(1295 184.5)"
+              fill="none"
+              stroke="#f27e2c"
+              stroke-linecap="round"
+              stroke-width="1.5"
+            />
+          </g>
+        </svg>
+        <span>Test Bot</span>
+      </button>
+    </div>
+    <div class="boat-training-section__add-new-question-accordion">
+      <form [formGroup]="trainingForm">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Edit Question</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+              <h3 class="app-form-label">Choose Category</h3>
+              <mat-form-field class="GT" appearance="outline">
+                <mat-label>Choose Category</mat-label>
+                <mat-select name="category" formControlName="category">
+                  <mat-option value="default">Welcome Message</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <h3 class="app-form-label">Trigger Question</h3>
+              <mat-slide-toggle name="trigger" formControlName="trigger" class="color--green"></mat-slide-toggle>
+            </div>
+
+            <div>
+              <h3 class="app-form-label">Question</h3>
+              <mat-form-field>
+                <mat-label>Question</mat-label>
+                <input name="question" formControlName="question" matInput placeholder="How to change user privileges" />
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Similar Questions</mat-panel-title>
+            </mat-expansion-panel-header>
+            
+            
+            <div formArrayName="similar_questions_1">
+            
+            <div class="flex-center" *ngFor="let similarQuestion of similarQuestionsArray.controls; let i=index">
+              <mat-form-field appearance="outline" class="GT"  [formGroupName]="i">
+                <input matInput formControlName="question" placeholder="Enter feature tag and press enter" />
+              </mat-form-field>
+              <button type="button" mat-button style="margin-bottom:22px" (click)="remove(i)">
+                <img
+                  src="../../../../assets/icons/icon_delete.svg"
+                  alt="icon delete"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="buttonGroup">
+            <button 
+              class="flex-center bttn bttn-secondary bttn-with-icon"
+              mat-button
+              type="button"
+              (click)="addSimilarQuestion('')"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  id="Group_1601"
+                  data-name="Group 1601"
+                  transform="translate(-1622 -196)"
+                >
+                  <rect
+                    id="Rectangle_489"
+                    data-name="Rectangle 489"
+                    width="24"
+                    height="24"
+                    transform="translate(1622 196)"
+                    fill="none"
+                  />
+                  <path
+                    id="Path_2396"
+                    data-name="Path 2396"
+                    d="M6430,2934.762v13.772"
+                    transform="translate(-4796 -2734.077)"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-linecap="round"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    id="Path_2397"
+                    data-name="Path 2397"
+                    d="M0,0V13.772"
+                    transform="translate(1640.886 207.571) rotate(90)"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-linecap="round"
+                    stroke-width="1.5"
+                  />
+                </g>
+              </svg>
+              <span>Add Questions</span>
+            </button>
+
+            <button 
+            class="flex-center bttn bttn-secondary bttn-with-icon"
+            mat-button
+            type="button"
+            (click)="autoAddSimilarQuestion()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <g
+                id="Group_1601"
+                data-name="Group 1601"
+                transform="translate(-1622 -196)"
+              >
+                <rect
+                  id="Rectangle_489"
+                  data-name="Rectangle 489"
+                  width="24"
+                  height="24"
+                  transform="translate(1622 196)"
+                  fill="none"
+                />
+                <path
+                  id="Path_2396"
+                  data-name="Path 2396"
+                  d="M6430,2934.762v13.772"
+                  transform="translate(-4796 -2734.077)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-linecap="round"
+                  stroke-width="1.5"
+                />
+                <path
+                  id="Path_2397"
+                  data-name="Path 2397"
+                  d="M0,0V13.772"
+                  transform="translate(1640.886 207.571) rotate(90)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-linecap="round"
+                  stroke-width="1.5"
+                />
+              </g>
+            </svg>
+            <span>Get Similar Questions</span>
+          </button>
+          </div>
+            
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Bot Response</mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- *ngIf="htmlValue" -->
+            <mat-tab-group  (selectedTabChange)="onTabChanged($event);">
+              <mat-tab label="Text" > 
+                <!-- <mat-form-field> -->
+                  <quill-editor formControlName="response"></quill-editor>
+                  
+                  <!-- <app-rich-text-editor [htmlContent]="htmlValue" (textChanged)="textChangedHandler($event)"></app-rich-text-editor> -->
+                  <!-- <textarea name="response" formControlName="response"
+                      matInput cols="10" rows="10">
+                  </textarea> -->
+              <!-- </mat-form-field>   -->
+              
+              </mat-tab>
+              <mat-tab label="Card"> Cards </mat-tab>
+              <mat-tab label="Emoji"> Emoji </mat-tab>
+            </mat-tab-group>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Feature</mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-form-field appearance="outline">
+              <input matInput (keyup.enter)="addKeyWord($event)" placeholder="Enter feature tag and press enter" />
+            </mat-form-field>
+            <mat-chip-list aria-label="Fish selection">
+              <mat-chip style="justify-content: space-between;"
+              (removed)="removeKeyword(chipIndex)" *ngFor="let keyword of keyWords;index as chipIndex">
+                {{keyword}}
+                <mat-icon matChipRemove >cancel</mat-icon>
+              </mat-chip>
+            </mat-chip-list>
+          </mat-expansion-panel>
+        </mat-accordion>
+    </form>
+    </div>
+  </div>
+
+  <div class="boat-training-section__add-new-question-sidebar">
+    <app-bot-flow-chart (editIntent)="editIntentParentHandler($event)"  [parentSaved]="saved"></app-bot-flow-chart>
+  </div>
+</div>

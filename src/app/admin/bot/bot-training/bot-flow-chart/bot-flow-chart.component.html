@@ -1,0 +1,99 @@
+<h4 class="boat-training-section__add-new-question-sidebar-heading">
+  <span class="parentQuestion" (click)="goParentQuestion()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path 
+      fill="none"
+      stroke="#f27e2c"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-miterlimit="10"
+      stroke-width="1.5" d="M12 24c6.627 0 12-5.373 12-12s-5.373-12-12-12-12 5.373-12 12 5.373 12 12 12zm-1-17v4h8v2h-8v4l-6-5 6-5z"/>
+    </svg>
+  </span>
+  <span class="intentQuestion">Flow Structure</span>
+</h4>
+
+<div class="boat-training-section__add-new-question-flow-chart">
+  <ul class="boat-training-section__add-new-question-flow-chart-list">
+    <li class="bttn bttn-outlined bttn-full-width text-center" (click)="editIntentHandler(intent['id'])" *ngFor="let intent of intentList;index as i">
+      <!-- How to change user privileges -->
+      {{intent['question']}}
+      <button type="button" mat-button style="float: right; line-height: 0px" (click)="remove($event,intent['id'])">
+        <img
+          src="../../../../assets/icons/icon_delete.svg"
+          alt="icon delete"
+        />
+      </button>
+    </li>
+  </ul>
+  <button [disabled]="parentSaved!=true"
+    class="
+      boat-training-section__add-new-question-flow-chart-add
+      flex-center
+      bttn bttn-outlined-secondary bttn-full-width bttn-with-icon
+    "
+    mat-button
+    (click)="onAddChildIntent()"
+  >
+    <svg
+      id="Iconly_Light_Paper"
+      data-name="Iconly/Light/Paper"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+    >
+      <g id="Paper" transform="translate(3.5 2)">
+        <path
+          id="Stroke_1"
+          data-name="Stroke 1"
+          d="M10.488,0H3.835A3.82,3.82,0,0,0,0,3.729V14.442a3.828,3.828,0,0,0,3.742,3.911h8.081a3.887,3.887,0,0,0,3.729-3.911V5.276Z"
+          transform="translate(0.75 0.762)"
+          fill="none"
+          stroke="#f27e2c"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          stroke-width="1.5"
+        />
+        <path
+          id="Stroke_3"
+          data-name="Stroke 3"
+          d="M0,0V2.909A2.574,2.574,0,0,0,2.568,5.484H5.323"
+          transform="translate(10.975 0.75)"
+          fill="none"
+          stroke="#f27e2c"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          stroke-width="1.5"
+        />
+        <path
+          id="Stroke_5"
+          data-name="Stroke 5"
+          d="M5.4.5H0"
+          transform="translate(5.388 12.858)"
+          fill="none"
+          stroke="#f27e2c"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          stroke-width="1.5"
+        />
+        <path
+          id="Stroke_7"
+          data-name="Stroke 7"
+          d="M3.356.5H0"
+          transform="translate(5.387 9.106)"
+          fill="none"
+          stroke="#f27e2c"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          stroke-width="1.5"
+        />
+      </g>
+    </svg>
+    <span>Add Child Intent</span>
+  </button>
+</div>

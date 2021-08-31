@@ -1,0 +1,154 @@
+// MATERIAL FORM FIELDS OVERRIDE
+.mat-form-field {
+  width: 100%;
+}
+
+// APP FORM FIELDS
+.app-form-label {
+  font-size: 14px;
+  color: $c-gray;
+  margin-bottom: 15px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+}
+
+.app-checkbox {
+  input {
+    display: none;
+
+    &:checked ~ label {
+      border: 6px solid $c-secondary;
+    }
+  }
+
+  label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba($c-gray, 0.2);
+    background-color: $c-white;
+    border-radius: 5px;
+    position: relative;
+    transition: 0.3s border ease-in-out;
+    cursor: pointer;
+  }
+}
+
+.inner-slide-toggle {
+  height: 20px;
+  line-height: 20px;
+
+  .mat-slide-toggle-bar {
+    height: 20px !important;
+    border-radius: 10px !important;
+    background-color: $c-gray;
+
+    .mat-slide-toggle-thumb-container {
+      width: 16px;
+      height: 16px;
+      top: 2px;
+      transform: translate3d(2px, 0, 0);
+
+      .mat-slide-toggle-thumb {
+        width: 16px;
+        height: 16px;
+        box-shadow: none !important;
+      }
+    }
+  }
+
+  &.color--green {
+    &.mat-checked {
+      .mat-slide-toggle-bar {
+        background-color: $c-success;
+      }
+
+      .mat-slide-toggle-thumb {
+        background-color: $c-white !important;
+      }
+    }
+
+    .mat-ripple-element {
+      background-color: $c-success;
+    }
+  }
+}
+
+.mat-slide-toggle {
+  &.color--primary {
+    &.mat-checked {
+      .mat-slide-toggle-bar {
+        background-color: $c-primary;
+      }
+
+      .mat-slide-toggle-thumb {
+        background-color: $c-white !important;
+      }
+    }
+
+    .mat-ripple-element {
+      background-color: $c-primary;
+    }
+  }
+}
+
+.checkbox--green.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent
+  .mat-ripple-element,
+.checkbox--green.mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent
+  .mat-ripple-element,
+.checkbox--green.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.checkbox--green.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: $c-success;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: rgb($c-gray, 0.2);
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick,
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $c-secondary;
+}
+
+// DROPDOWN MENU
+.mat-menu-content {
+  min-width: 160px;
+
+  .mat-menu-item {
+    display: flex;
+    align-items: center;
+
+    .mat-menu-item__icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+// CHECKBOXES
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: $c-secondary;
+  border-radius: 5px;
+}
+
+.mat-checkbox-background,
+.mat-checkbox-frame {
+  border-radius: 5px !important;
+}
+
+.mat-checkbox-frame {
+  border: 1px solid rgba($c-gray, 0.4) !important;
+}
+
+.mat-chip-primary {
+  background-color: #0e496e !important;
+  color: #fff !important;
+
+  .mat-chip-remove {
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+}

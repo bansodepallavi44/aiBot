@@ -1,0 +1,15 @@
+.admin-container {
+  display: flex;
+  background: $c-light-gray;
+}
+
+.admin-main {
+  width: 100%;
+}
+
+.section--main-scrollable {
+  height: calc(100vh - 73px);
+  overflow: auto;
+
+  @include scrollbar(10px);
+}

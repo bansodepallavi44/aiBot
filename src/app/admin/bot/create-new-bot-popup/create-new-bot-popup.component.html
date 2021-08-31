@@ -1,0 +1,32 @@
+<div class="modal create-new-bot-popup">
+  <form [formGroup]="createBotForm" (ngSubmit)="saveBot()">
+    <div class="modal-header">
+      <h3 class="create-new-bot-popup__heading">Create New Bot</h3>
+      <a (click)="closeDialog()" class="modal-close">
+        <img src="../../../../assets/icons/icon_cross.svg" alt="icon cross" />
+      </a>
+    </div>
+    <div class="mt-modal-content mat-dialog-content add-category-content">
+      <div>
+        <h3 class="app-form-label">Bot Details</h3>
+        <mat-form-field appearance="outline">
+          <mat-label>Bot Name</mat-label>
+          <input matInput formControlName="bot_name" placeholder="Enter bot Name" />
+        </mat-form-field>
+      </div>
+      <div>
+        <h3 class="app-form-label">Select Workspace</h3>
+        <mat-form-field appearance="outline">
+          <mat-label>Select Workspace</mat-label>
+          <mat-select formControlName="bot_type">
+            <mat-option *ngFor="let workSpace of workSpaceList" value="{{workSpace['id']}}" >{{workSpace['name']}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button mat-button (click)="closeDialog()" type="button" class="bttn">Cancel</button>
+      <button mat-button type="submit" class="bttn bttn-secondary">Create Bot</button>
+    </div>
+  </form>
+</div>

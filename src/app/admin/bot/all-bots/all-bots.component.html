@@ -1,0 +1,51 @@
+<section class="section-boat section--main-scrollable">
+
+    <div class="section-boat__listing">
+        <div class="section-boat__listing-add-new" (click)="onCreateNewBot()">
+            <div>
+                <img src="../../../../assets/icons/icon_plus_rectengle.svg" alt="icon plus" />
+                <p>New Bot</p>
+            </div>
+        </div>
+
+        <div class="section-boat__listing-item" *ngFor="let bot of bots" (click)="trainBot('',bot['bot_name'])">
+            <div class="section-boat__listing-item-header">
+                <div class="section-boat__listing-item-status status--online">
+                    Online
+                </div>
+                <button mat-icon-button [matMenuTriggerFor]="menu" (click)="botMenu($event)" aria-label="Example icon-button with a menu">
+          <img src="../../../../assets/icons/icon_three_dots.svg" alt="three dots" />
+        </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+            <img src="../../../../assets/icons/icon_edit.svg" alt="icon plus" class="mat-menu-item__icon" />
+            <span>Edit</span>
+          </button>
+                    <button mat-menu-item>
+            <img src="../../../../assets/icons/icon_copy.svg" alt="icon delete" class="mat-menu-item__icon" />
+            <span>Duplicate Bot</span>
+          </button>
+                    <button mat-menu-item>
+            <img src="../../../../assets/icons/icon_report.svg" alt="icon delete" class="mat-menu-item__icon" />
+            <span>Report</span>
+          </button>
+                    <button mat-menu-item (click)="deleteBot(bot.bot_name)">
+            <img src="../../../../assets/icons/icon_delete.svg" alt="icon delete" class="mat-menu-item__icon" />
+            <span>Delete Bot</span>
+          </button>
+                </mat-menu>
+            </div>
+            <div class="section-boat__listing-item-body">
+                <img src="{{bot.bot_logo}}" alt="bot" />
+                <div class="section-boat__listing-item-description">
+                    <h4>{{bot.bot_name}}</h4>
+                    <p>{{bot.bot_type}}</p>
+                </div>
+            </div>
+            <div class="section-boat__listing-item-footer">
+                <img src="../../../../assets/icons/icon_website.svg" alt="icon website" />
+                <span>Website</span>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,32 @@
+<aside class="admin-sidebar">
+    <a href="/" class="admin-sidebar__branding">
+        <img src="../../../../assets/icons/logo-white.svg" alt="aiBot logo" />
+    </a>
+
+    <ul class="admin-sidebar__menu">
+        <li class="admin-sidebar__menu-item">
+            <a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="admin-sidebar__menu-item-link">
+                <img src="../../../../assets/icons/icon_home.svg" alt="aiBot logo" />
+                <span>Home</span>
+            </a>
+        </li>
+        <li class="admin-sidebar__menu-item">
+            <a [routerLink]="['', 'admin', 'bot', 'all-bots']" routerLinkActive="active" class="admin-sidebar__menu-item-link" routerLinkActive="active">
+                <img src="../../../../assets/icons/icon_bot.svg" alt="aiBot logo" />
+                <span>Bot</span>
+            </a>
+        </li>
+        <li class="admin-sidebar__menu-item">
+            <a [routerLink]="['', 'admin', 'bot', 'plugins', 'all']" routerLinkActive="active" class="admin-sidebar__menu-item-link">
+                <img src="../../../../assets/icons/icon_plugins.svg" alt="aiBot logo" />
+                <span>Plugins</span>
+            </a>
+        </li>
+        <li class="admin-sidebar__menu-item">
+            <a [routerLink]="['', 'admin', 'live-chat']" routerLinkActive="active" class="admin-sidebar__menu-item-link">
+                <img src="../../../../assets/icons/icon_chat.svg" alt="aiBot logo" />
+                <span>Live Chat</span>
+            </a>
+        </li>
+    </ul>
+</aside>

@@ -1,0 +1,45 @@
+.cdk-overlay-dark-backdrop {
+  background: rgba($c-black, 0.2);
+}
+
+// .cdk-overlay-pane {
+//   width: 100% !important;
+//   max-width: 515px !important;
+// }
+
+.mat-dialog-container {
+  border-radius: 5px !important;
+  padding: 0 !important;
+
+  .modal-close {
+    background: transparent;
+    line-height: 1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px 15px;
+    border-bottom: 1px solid rgba($c-gray, 0.2);
+  }
+
+  .mat-dialog-content {
+    padding: 30px;
+    margin: 0;
+  }
+
+  .modal-footer {
+    padding: 0 30px 30px;
+    text-align: right;
+
+    button {
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+    }
+  }
+}

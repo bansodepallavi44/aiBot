@@ -1,0 +1,69 @@
+.installation-guide {
+    color: $c-gray-dark;
+    .bttn {
+        min-width: 150px;
+    }
+    &__header {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 30px;
+        &-logo {
+            display: block;
+            max-width: 150px;
+        }
+    }
+    &__top {
+        text-align: center;
+        margin: 30px auto;
+    }
+    &__heading {
+        font-size: 18px;
+        color: $c-light-blue;
+        margin-bottom: 1em;
+    }
+    &__description {
+        font-size: 14px;
+    }
+    &__main {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    &__accordions {
+        max-height: calc(100vh - 260px - 80px);
+        overflow: auto;
+        padding: 0 30px;
+        .mat-expansion-panel-header-title {
+            align-items: center;
+            font-size: 24px;
+            color: $c-gray-dark;
+            img {
+                width: 32px;
+                height: 32px;
+                margin-right: 15px;
+            }
+        }
+        .mat-expansion-panel-body {
+            padding-top: 20px;
+            color: $c-gray-dark;
+            font-size: 14px;
+            code {
+                display: block;
+                background-color: rgba($c-light-blue, 0.1);
+                padding: 15px;
+                margin: 20px 0;
+            }
+        }
+        .mat-expansion-panel {
+            border: 1px solid $c-gray;
+        }
+    }
+    &__buttons {
+        padding: 15px;
+        text-align: center;
+        .bttn {
+            &:not(:last-child) {
+                margin-right: 30px;
+            }
+        }
+    }
+}

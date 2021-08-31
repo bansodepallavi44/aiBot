@@ -1,0 +1,58 @@
+.boat-configuration {
+  padding: 30px;
+  max-height: calc(100vh - 73px);
+  overflow: auto;
+
+  &__inner {
+    max-width: 800px;
+  }
+
+  &__heading {
+    font-size: 23px;
+    color: $c-gray;
+    margin-bottom: 1em;
+  }
+
+  &__subheading {
+    font-size: 18px;
+    color: $c-gray;
+    margin-bottom: 0.4em;
+    font-weight: 600;
+  }
+
+  &__description {
+    font-size: 13px;
+    color: $c-gray;
+    margin-bottom: 1.5em;
+  }
+
+  &__enable {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 23px;
+    font-weight: 600;
+
+    .mat-slide-toggle {
+      margin-left: 20px;
+    }
+  }
+
+  &__input-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+
+    & > * {
+      margin-right: 20px;
+    }
+
+    .mat-form-field {
+      max-width: 60%;
+    }
+
+    .mat-form-field-wrapper {
+      padding: 0;
+    }
+  }
+}

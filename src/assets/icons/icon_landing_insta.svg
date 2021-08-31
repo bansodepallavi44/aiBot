@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_16" data-name="Group 16" transform="translate(-1402 -6810)">
+    <rect id="Rectangle_39" data-name="Rectangle 39" width="24" height="24" transform="translate(1402 6810)" fill="none"/>
+    <g id="Icon_ionic-logo-instagram" data-name="Icon ionic-logo-instagram" transform="translate(1400.715 6808.433)">
+      <path id="Path_1" data-name="Path 1" d="M16.945,5.964a3.671,3.671,0,0,1,3.66,3.66v7.321a3.671,3.671,0,0,1-3.66,3.66H9.624a3.671,3.671,0,0,1-3.66-3.66V9.624a3.671,3.671,0,0,1,3.66-3.66h7.321m0-1.464H9.624A5.139,5.139,0,0,0,4.5,9.624v7.321a5.139,5.139,0,0,0,5.124,5.124h7.321a5.139,5.139,0,0,0,5.124-5.124V9.624A5.139,5.139,0,0,0,16.945,4.5Z" transform="translate(0 0)" fill="#fff"/>
+      <path id="Path_2" data-name="Path 2" d="M24.723,11.2a1.1,1.1,0,1,1,1.1-1.1A1.1,1.1,0,0,1,24.723,11.2Z" transform="translate(-6.68 -1.572)" fill="#fff"/>
+      <path id="Path_3" data-name="Path 3" d="M15.642,12.714a2.928,2.928,0,1,1-2.928,2.928,2.931,2.931,0,0,1,2.928-2.928m0-1.464a4.392,4.392,0,1,0,4.392,4.392,4.393,4.393,0,0,0-4.392-4.392Z" transform="translate(-2.358 -2.358)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

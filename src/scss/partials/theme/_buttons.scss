@@ -1,0 +1,83 @@
+// BUTTONS
+.bttn {
+    font-size: 14px;
+    padding: 11px 17px !important;
+    border-radius: 5px !important;
+    border: 1px solid transparent !important;
+    line-height: 1 !important;
+    min-height: 48px !important;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+    &.bttn-with-icon {
+        display: flex;
+        align-items: center;
+        svg {
+            margin-right: 8px;
+        }
+    }
+    &.bttn-full-width {
+        max-width: 100% !important;
+        width: 100%;
+    }
+}
+
+.bttn-secondary {
+    background-color: $c-secondary;
+    color: $c-white;
+}
+
+.bttn-secondary-gradient {
+    background: $c-secondary-gradient;
+    color: $c-white;
+}
+
+.bttn-outlined {
+    border: 1px solid rgba($c-gray, 0.2) !important;
+    background: transparent;
+}
+
+.bttn-outlined-secondary {
+    border: 1px solid $c-secondary !important;
+    color: $c-secondary;
+}
+
+.bttn-google,
+.bttn-facebook,
+.bttn-linkedin {
+    color: $c-white;
+    height: 48px;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+.bttn-google {
+    background-color: transparent;
+    color: $c-google;
+    &:hover {
+        background-color: $c-google;
+        color: $c-white;
+    }
+}
+
+.bttn-facebook {
+    background-color: transparent;
+    color: $c-facebook;
+    &:hover {
+        background-color: $c-facebook;
+        color: $c-white;
+    }
+}
+
+.bttn-linkedin {
+    background-color: transparent;
+    color: $c-linedin;
+    &:hover {
+        background-color: $c-linedin;
+        color: $c-white;
+    }
+}
+
+.mat-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay,
+.mat-stroked-button:hover:not(.mat-button-disabled) .mat-button-focus-overlay {
+    opacity: 0.1;
+}

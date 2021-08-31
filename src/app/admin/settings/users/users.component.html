@@ -1,0 +1,117 @@
+<h3 class="section-settings__heading">{{title}}</h3>
+
+<div class="section-settings__searchbarbox d-flex flex-space-between">
+  <div class="section-settings__searchbox d-flex">
+    <div class="section-settings__searchbar">
+      <img src="../../../../assets/icons/icon_search.svg" alt="search" class="section-settings__search-icon" />
+      <input type="text" placeholder="Search here …." class="form-control" [(ngModel)]="searchKeyword"
+        class="section-settings__search-input" />
+    </div>
+    <div class="section-settings__selectbox">
+      <div class="selectoptionbox">
+        <h4>Privilege :</h4>
+        <mat-form-field>
+          <mat-select>
+            <mat-option value="Admin">Admin</mat-option>
+            <mat-option value="option2">Option 2</mat-option>
+            <mat-option value="option3">Option 3</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="section-settings__filter-btn">
+      <button class="bttn bttn-secondary bttn-with-icon">
+        <img src="../../../../assets/icons/Icon_Filter.svg" alt="filter" class="section-settings__filter-icon" />
+      </button>
+    </div>
+  </div>
+  <button class="bttn bttn-secondary bttn-with-icon" (click)="onAddNewUSer()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <g id="Group_1601" data-name="Group 1601" transform="translate(-1622 -196)">
+        <rect id="Rectangle_489" data-name="Rectangle 489" width="24" height="24" transform="translate(1622 196)"
+          fill="none" />
+        <path id="Path_2396" data-name="Path 2396" d="M6430,2934.762v13.772" transform="translate(-4796 -2734.077)"
+          fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5" />
+        <path id="Path_2397" data-name="Path 2397" d="M0,0V13.772" transform="translate(1640.886 207.571) rotate(90)"
+          fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5" />
+      </g>
+    </svg>
+    <span>Add New User</span>
+  </button>
+</div>
+
+<div class="table">
+  <table class="section-settings__table">
+    <thead>
+      <tr>
+        <th>
+          <span class="app-checkbox">
+            <input type="checkbox" id="allUSersSelect" />
+            <label for="allUSersSelect"></label>
+          </span>
+        </th>
+        <th>User Id</th>
+        <th>Email Id</th>
+        <th>Privilege</th>
+        <th>Department</th>
+        <th>Team</th>
+        <th class="text-right">
+          <button *ngIf="userMenu" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <svg id="Component_80_1" data-name="Component 80 – 1" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24">
+              <g id="Group_985" data-name="Group 985" transform="translate(24) rotate(90)">
+                <rect id="Rectangle_347" data-name="Rectangle 347" width="24" height="24" fill="none" />
+                <g id="Group_972" data-name="Group 972" transform="translate(4 10)">
+                  <circle id="Ellipse_225" data-name="Ellipse 225" cx="2" cy="2" r="2" />
+                  <circle id="Ellipse_226" data-name="Ellipse 226" cx="2" cy="2" r="2" transform="translate(12)" />
+                  <circle id="Ellipse_227" data-name="Ellipse 227" cx="2" cy="2" r="2" transform="translate(6)" />
+                </g>
+              </g>
+            </svg>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <img src="../../../../assets/icons/icon_delete.svg" alt="icon delete" class="mat-menu-item__icon" />
+              <span>Delete Users</span>
+            </button>
+          </mat-menu>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let collaborator of collaborators | searchFilter : searchKeyword;index as i">
+        <td>
+          <span class="app-checkbox">
+            <input type="checkbox" id="user-{{i}}" />
+            <label for="user-{{i}}"></label>
+          </span>
+        </td>
+        <td>
+          <div class="section-settings__user d-flex">
+            <img src="../../../../assets/images/setting-user-pic.png" alt="user" class="section-settings__user-pic" />
+            <div class="section-settings__user-detail">
+              <span class="section-settings__user-name">{{collaborator.username}}</span>
+            </div>
+          </div>
+        </td>
+        <td>{{collaborator.email}}</td>
+        <td><span class="app-badge badge--secondary admin"
+            *ngFor="let privilegeAction of collaborator.privilege_actions">{{privilegeAction.is_general}}</span></td>
+        <td>{{collaborator.department}}</td>
+        <td>{{collaborator.privilege}}</td>
+        <td class="section-settings__table-actions text-right">
+          <span class="section-settings__table-actions-icon" (click)="onSelectUSers(collaborator)">
+            <img src="../../../../assets/icons/icon_edit.svg" alt="icon edit" /></span>
+          <span class="section-settings__table-actions-icon">
+            <a (click)="deleteCollaborator(collaborator.id)">
+              <img src="../../../../assets/icons/icon_delete.svg" alt="icon delete" /></a>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="section-settings__pagination">
+    <mat-paginator [length]="collaborators.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+    </mat-paginator>
+  </div>
+</div>

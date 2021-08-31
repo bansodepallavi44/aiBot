@@ -1,0 +1,68 @@
+<h2 mat-dialog-title style="text-align: center; margin-top: 10px; margin-bottom: 10px;">Select Users</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="section-settings__searchbarbox d-flex flex-space-between">
+        <div class="section-settings__searchbox d-flex">
+            <div class="section-settings__searchbar">
+                <img src="../../../../assets/icons/icon_search.svg" alt="search"
+                    class="section-settings__search-icon" />
+                <input type="text" placeholder="Search here …." class="form-control" [(ngModel)]="searchKeyword"
+                    class="section-settings__search-input" />
+            </div>
+        </div>
+    </div>
+
+    <div class="table">
+        <table class="section-settings__table">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="app-checkbox">
+                            <input type="checkbox" id="allUSersSelect" />
+                            <label for="allUSersSelect"></label>
+                        </span>
+                    </th>
+                    <th>User Id</th>
+                    <th>Email Id</th>
+                    <th>Privilege</th>
+                    <th>Department</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let collaborator of collaborators | searchFilter : searchKeyword;index as i">
+                    <td>
+                        <span class="app-checkbox">
+                            <input type="checkbox" #checkBox (change)="handleSelected($event,collaborator['id'])"
+                                id="user-{{i}}" />
+                            <label for="user-{{i}}"></label>
+                        </span>
+                    </td>
+                    <td>
+                        <div class="section-settings__user d-flex">
+                            <img src="../../../../assets/images/setting-user-pic.png" alt="user"
+                                class="section-settings__user-pic" />
+                            <div class="section-settings__user-detail">
+                                <span class="section-settings__user-name">{{collaborator.username}}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{collaborator.email}}</td>
+                    <td><span class="app-badge badge--secondary admin"
+                            *ngFor="let privilegeAction of collaborator.privilege_actions">{{privilegeAction.is_general}}</span>
+                    </td>
+                    <td>{{collaborator.department}}</td>
+                    <td>{{collaborator.privilege}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="section-settings__pagination">
+            <mat-paginator [length]="collaborators.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page">
+            </mat-paginator>
+        </div>
+    </div>
+    <div class="installation-guide__buttons">
+        <button mat-button class="bttn bttn-outlined" (click)="cancel()">Cancel</button>
+        <button mat-button class="bttn bttn-secondary" (click)="done()">Done</button>
+    </div>
+</mat-dialog-content>

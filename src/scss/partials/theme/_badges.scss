@@ -1,0 +1,25 @@
+.app-badge {
+    font-size: 14px;
+    padding: 4px 15px;
+    border-radius: 12px;
+
+    &.badge--sky {
+        background-color: $c-sky;
+        color: $c-white;
+    }
+
+    &.badge--secondary {
+        background-color: rgba($c-secondary, 0.1);
+        color: $c-secondary;
+    }
+
+    &.badge--agent {
+        background-color: rgba($c-light-blue, 0.1);
+        color:$c-light-blue;
+    }
+    
+    &.badge--Editor {
+        background-color: rgba($c-bage-editor-color, 0.1);
+        color: $c-bage-editor-color;
+    }
+}

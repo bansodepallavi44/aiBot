@@ -1,0 +1,26 @@
+<header class="admin-header">
+    <div class="admin-header__left">
+        <div class="admin-header__notification">
+            <div class="admin-header__notification-bell">
+                <img src="../../../../assets/icons/icon_notification.svg" alt="notification" />
+                <small class="admin-header__notification-count">1</small>
+            </div>
+        </div>
+    </div>
+    <div class="admin-header__right">
+        <div class="admin-header__user" mat-button [matMenuTriggerFor]="menu">
+            <img src="../../../../assets/images/user_pic.png" alt="user" class="admin-header__user-pic" />
+            <div class="admin-header__user-detail">
+                <p class="admin-header__user-name">Rohit Kale</p>
+                <span class="admin-header__user-role">Admin</span>
+            </div>
+            <img src="../../../../assets/icons/icon_angel_down.svg" alt="icon" />
+        </div>
+        <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item>
+        <mat-icon>power_settings_new</mat-icon>
+        <span (click)="logout()">Log Out</span>
+      </button>
+        </mat-menu>
+    </div>
+</header>

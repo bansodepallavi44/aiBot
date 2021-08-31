@@ -1,0 +1,77 @@
+<div class="boat-configuration">
+    <div class="boat-configuration__inner">
+        <h2 class="boat-configuration__heading">IFrame Settings</h2>
+
+        <div class="boat-configuration__enable">
+            <span>Enable Settings</span>
+            <mat-slide-toggle class="inner-slide-toggle color--green"></mat-slide-toggle>
+        </div>
+
+        <h3 class="boat-configuration__subheading">Secret Keys</h3>
+
+        <p class="boat-configuration__description">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        </p>
+
+        <div class="boat-configuration__input-section">
+            <mat-form-field appearance="outline">
+                <mat-label></mat-label>
+                <input matInput placeholder="XXXXXXXXXXXXXXXXXXXXXXXXX" [(ngModel)]="iframeSetting.secret_key" />
+            </mat-form-field>
+            <div>
+                <button mat-button class="bttn bttn-outlined-secondary" (click)="showBotSecreteKey()">
+            Show Key
+          </button>
+            </div>
+            <div>
+                <button mat-button class="bttn bttn-secondary">Regenerate Key</button>
+            </div>
+        </div>
+
+        <div class="boat-configuration__input-section">
+            <mat-form-field appearance="outline">
+                <mat-label>Secret Key</mat-label>
+                <input matInput placeholder="XXXXXXXXXXXXXXXXXXXXXXXXX" />
+            </mat-form-field>
+            <div>
+                <button mat-button class="bttn bttn-outlined-secondary">
+            Show Key
+          </button>
+            </div>
+            <div>
+                <button mat-button class="bttn bttn-secondary">Regenerate Key</button>
+            </div>
+        </div>
+
+        <h3 class="boat-configuration__subheading">Embed Code</h3>
+
+        <p class="boat-configuration__description">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        </p>
+
+        <div class="boat-configuration__input-section">
+            <mat-form-field appearance="outline">
+                <mat-label></mat-label>
+                <textarea matInput placeholder="iframe" rows="6" [(ngModel)]="iframeSetting.iframe">
+                </textarea>
+            </mat-form-field>
+            <div>
+                <button mat-button class="bttn bttn-secondary">Copy</button>
+            </div>
+        </div>
+
+        <h3 class="boat-configuration__subheading">Preview</h3>
+
+        <p class="boat-configuration__description">
+            Enabling Web Chat Preview on this site will give users of your bot a preview version of the Bot Framework Web Chat control. The preview version includes new, bet features that have not yet been officially released
+        </p>
+
+        <p class="boat-configuration__description">
+            <mat-checkbox class="checkbox--green">Enable Preview</mat-checkbox>
+        </p>
+        <p class="boat-configuration__description">
+            <mat-checkbox class="checkbox--green">Block attachment upload from user</mat-checkbox>
+        </p>
+    </div>
+</div>
+<router-outlet></router-outlet>

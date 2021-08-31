@@ -1,0 +1,539 @@
+<section class="live-chat">
+    <div class="live-chat__sidebar sidebar--left">
+      <div class="live-chat__sidebar-tabs">
+        <div class="live-chat__sidebar-tabs-btns">
+          <button class="live-chat__sidebar-tabs-btn" [ngClass]="{'active': !isWaitingWindowActive}" (click)="onTabChange()">
+            <span>Chats</span>
+          </button>
+          <button class="live-chat__sidebar-tabs-btn" [ngClass]="{'active': isWaitingWindowActive}" (click)="onTabChange()">
+            <span>Waiting</span>
+            <span class="app-badge badge--sky">{{waitingUsers?.waiting_count}}</span>
+          </button>
+        </div>
+  
+        <ng-container *ngIf="!isWaitingWindowActive; else waitingWindowtab">
+          <div class="live-chat__sidebar-tabs-content">
+            <div class="live-chat__chat-listing">
+              <div class="live-chat__chat-listing-header">
+                <h5 class="live-chat__chat-listing-heading">All Conversations</h5>
+                <span class="live-chat__chat-listing-header-filter">
+                  <img
+                    src="../../../../assets/icons/icon_chat_filter.svg"
+                    alt="chat filter icon"
+                  />
+                </span>
+              </div>
+  
+              <div class="live-chat__chat-listing-list">
+                <div class="live-chat__chat-listing-item" *ngFor="let user of chatList" (click)=selectChat(user?.iframe_link,user?.bot_name);>
+                    <div class="live-chat__chat-listing-item-header">
+                        <span
+                          class="live-chat__chat-listing-item-dot dot--success"
+                        ></span>
+                        <h4 class="live-chat__chat-listing-item-heading">
+                          {{user?.bot_name}}
+                        </h4>
+                        <span class="app-badge badge--secondary">{{user?.bot_name}}</span>
+                        <!-- <span
+                          class="
+                            live-chat__chat-listing-item-count
+                            app-badge
+                            badge--sky
+                          "
+                          >5</span> -->
+                          <span  class="
+                          app-badge
+                          badge--danger
+                        " (click)="deleteChat(user?.conversation_id);">DELETE</span>
+                      </div>
+      
+                      <div class="live-chat__chat-listing-item-body">
+                        <p class="live-chat__chat-listing-item-message">
+                         {{newReceivedMsg}}
+                        </p>
+                        <span class="live-chat__chat-listing-item-time">09:30 AM</span>
+                      </div>
+
+                  <!-- <div class="live-chat__chat-listing-item-header">
+                    <span
+                      class="live-chat__chat-listing-item-dot dot--success"
+                    ></span>
+                    <h4 class="live-chat__chat-listing-item-heading">
+                      Vijaya Laxmi Pathowle
+                    </h4>
+                    <span class="app-badge badge--secondary">Bot Name</span>
+                    <span
+                      class="
+                        live-chat__chat-listing-item-count
+                        app-badge
+                        badge--sky
+                      "
+                      >5</span
+                    >
+                  </div>
+  
+                  <div class="live-chat__chat-listing-item-body">
+                    <p class="live-chat__chat-listing-item-message">
+                      Bot: Hi there How may I help you?
+                    </p>
+                    <span class="live-chat__chat-listing-item-time">09:30 AM</span>
+                  </div> -->
+                </div>
+  
+                <!-- <div class="live-chat__chat-listing-item">
+                  <div class="live-chat__chat-listing-item-header">
+                    <span
+                      class="live-chat__chat-listing-item-dot dot--secondary"
+                    ></span>
+                    <h4 class="live-chat__chat-listing-item-heading">
+                      Rahul Dilip Sharma
+                    </h4>
+                    <span class="app-badge badge--secondary">Bot Name</span>
+                  </div>
+  
+                  <div class="live-chat__chat-listing-item-body">
+                    <p class="live-chat__chat-listing-item-message">
+                      Bot: Hi there How may I help you?
+                    </p>
+                    <span class="live-chat__chat-listing-item-time">09:30 AM</span>
+                  </div>
+                </div>
+  
+                <div class="live-chat__chat-listing-item">
+                  <div class="live-chat__chat-listing-item-header">
+                    <span class="live-chat__chat-listing-item-dot"></span>
+                    <h4 class="live-chat__chat-listing-item-heading">
+                      Rahul Suhas Chaudhary
+                    </h4>
+                    <span class="app-badge badge--secondary">Bot Name</span>
+                  </div>
+  
+                  <div class="live-chat__chat-listing-item-body">
+                    <p class="live-chat__chat-listing-item-message">
+                      Bot: Hi there How may I help you?
+                    </p>
+                    <span class="live-chat__chat-listing-item-time">09:30 AM</span>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </ng-container>
+  
+  
+        <ng-template #waitingWindowtab>
+          <div class="live-chat__sidebar-tabs-content">
+            <div class="live-chat__chat-listing">
+              <div class="live-chat__chat-listing-header">
+                <h5 class="live-chat__chat-listing-heading">Waiting Users</h5>
+                <span class="live-chat__chat-listing-header-filter">
+                  <img
+                    src="../../../../assets/icons/icon_chat_filter.svg"
+                    alt="chat filter icon"
+                  />
+                </span>
+              </div>
+  
+              <div class="live-chat__chat-listing-list">
+                <div class="live-chat__chat-listing-item" *ngFor="let waiters of waitingUsers.users;">
+                    <div class="live-chat__chat-listing-item-header">
+                        <span
+                          class="live-chat__chat-listing-item-dot dot--success"
+                        ></span>
+                        <h4 class="live-chat__chat-listing-item-heading">
+                          {{waiters?.bot_name}}
+                        </h4>
+                        <span class="app-badge badge--secondary">{{waiters?.bot_name}}</span>
+                        <!-- <span
+                          class="
+                            live-chat__chat-listing-item-count
+                            app-badge
+                            badge--sky
+                          "
+                          >5</span -->
+                          <span  class="
+                          app-badge
+                          badge--success
+                        " (click)="acceptAgent(waiters?.conversation_id);">ACCEPT</span>
+                      </div>
+      
+                      <div class="live-chat__chat-listing-item-body">
+                        <p class="live-chat__chat-listing-item-message">
+                          {{newReceivedMsg}}
+                        </p>
+                        <span class="live-chat__chat-listing-item-time">
+                          09:30 AM
+                        </span>
+                      </div>
+
+
+
+
+
+                  <!-- <div class="live-chat__chat-listing-item-header">
+                    <span
+                      class="live-chat__chat-listing-item-dot dot--success"
+                    ></span>
+                    <h4 class="live-chat__chat-listing-item-heading">
+                      Vijaya Laxmi Pathowle
+                    </h4>
+                    <span class="app-badge badge--secondary">Bot Name</span>
+                    <span
+                      class="
+                        live-chat__chat-listing-item-count
+                        app-badge
+                        badge--sky
+                      "
+                      >5</span
+                    >
+                  </div>
+  
+                  <div class="live-chat__chat-listing-item-body">
+                    <p class="live-chat__chat-listing-item-message">
+                      Bot: Hi there How may I help you?
+                    </p>
+                    <span class="live-chat__chat-listing-item-time">09:30 AM</span>
+                  </div> -->
+                </div>
+  
+                <!-- <div class="live-chat__chat-listing-item">
+                  <div class="live-chat__chat-listing-item-header">
+                    <span
+                      class="live-chat__chat-listing-item-dot dot--secondary"
+                    ></span>
+                    <h4 class="live-chat__chat-listing-item-heading">
+                      Rahul Dilip Sharma
+                    </h4>
+                    <span class="app-badge badge--secondary">Bot Name</span>
+                  </div>
+  
+                  <div class="live-chat__chat-listing-item-body">
+                    <p class="live-chat__chat-listing-item-message">
+                      Bot: Hi there How may I help you?
+                    </p>
+                    <span class="live-chat__chat-listing-item-time">09:30 AM</span>
+                  </div>
+                </div> -->
+  
+                <!-- <div class="live-chat__chat-listing-item">
+                  <div class="live-chat__chat-listing-item-header">
+                    <span class="live-chat__chat-listing-item-dot"></span>
+                    <h4 class="live-chat__chat-listing-item-heading">
+                      Rahul Suhas Chaudhary
+                    </h4>
+                    <span class="app-badge badge--secondary">Bot Name</span>
+                  </div>
+  
+                  <div class="live-chat__chat-listing-item-body">
+                    <p class="live-chat__chat-listing-item-message">
+                      Bot: Hi there How may I help you?
+                    </p>
+                    <span class="live-chat__chat-listing-item-time">09:30 AM</span>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </ng-template>
+  
+  
+  
+      </div>
+    </div>
+  
+    <div class="live-chat__chat">
+      <div class="chatbot__bot-body">
+        <div class="chatbot__bot-messages">
+          <div [ngClass]="msg['from'] == 'User' ? 'msg--recieve' : 'msg--send'" class="chatbot__bot-messages-msg" *ngFor="let msg of staleMsgList;">
+            <div class="chatbot__bot-messages-msg-user">
+              <img src="/images/bot_admin_pic.jpg" alt="">
+            </div>
+            <div class="chatbot__bot-messages-msg-content content--text">
+              <p>{{msg['msg']}}</p>
+              <span class="chatbot__bot-messages-msg-time">{{msg['date'] | date:'dd/MM/YYYY HH:mm a'}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chatbot__bot-footer">
+        <!-- 'chatbot__bot-footer-input-group' will be hide when 'chatbot__bot-feedback' shown -->
+        <div class="chatbot__bot-footer-input-group">
+          <input
+            type="text"
+            class="chatbot__bot-footer-input"
+            placeholder="Type your message here ..."
+            [(ngModel)]="message"
+          />
+  
+          <div class="chatbot__bot-footer-input-append">
+            <span class="chatbot__bot-footer-emojies">
+              <img
+                src="../../../../assets/icons/icon_smiley.svg"
+                alt="icon smiley"
+              />
+            </span>
+  
+            <span class="chatbot__bot-footer-attachment">
+              <img
+                src="../../../../assets/icons/icon_attachment.svg"
+                alt="icon attachment"
+              />
+            </span>
+  
+            <button class="chatbot__bot-footer-send" (click)="sendMsg()">
+              <img
+                src="../../../../assets/icons/icon_send_msg.svg"
+                alt="icon send message"
+              />
+  
+              <span>Send</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="live-chat__sidebar sidebar--right">
+      <div class="live-chat__sidebar-tabs">
+        <div class="live-chat__sidebar-tabs-btns">
+          <button class="live-chat__sidebar-tabs-btn" [ngClass]="{'active': !isUserDescriptionActive}" (click)="onUserDescriptionChange()">
+            <span>Quick Responses</span>
+          </button>
+          <button class="live-chat__sidebar-tabs-btn" [ngClass]="{'active': isUserDescriptionActive}" (click)="onUserDescriptionChange()">
+            <span>User Description</span>
+          </button>
+        </div>
+  
+        <ng-container *ngIf="isUserDescriptionActive; else quickResponseTemplate">
+          <div class="live-chat__sidebar-tabs-content">
+            <div class="live-chat__sidebar-tabs-content-user-description">
+              <div class="live-chat__sidebar-tabs-content-user-description-header">
+                <div
+                  class="
+                    live-chat__sidebar-tabs-content-user-description-header-user
+                  "
+                >
+                  <span
+                    class="
+                      live-chat__sidebar-tabs-content-user-description-header-user-placeholder
+                    "
+                    >U</span
+                  >
+                  <div>
+                    <p class="user-name">User 105</p>
+                    <span class="user-online-offline-state">Online</span>
+                  </div>
+                </div>
+                <img
+                  src="../../../../assets/icons/icon_settings_small.svg"
+                  alt="icon settings"
+                />
+              </div>
+              <div class="live-chat__sidebar-tabs-content-user-description-body">
+                <mat-accordion>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Chat Details</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="user-description-icon-colon-detail">
+                      <p class="user-description-icon-colon-detail-heading">
+                        <img
+                          src="../../../../assets/icons/icon_calendar_small.svg"
+                          alt="icon calendar"
+                        />
+                        <span>Date & start time :</span>
+                      </p>
+                      <p class="user-description-icon-colon-detail-value">
+                        February 21, 2021- 09:30 AM
+                      </p>
+                    </div>
+                    <div class="user-description-icon-colon-detail">
+                      <p class="user-description-icon-colon-detail-heading">
+                        <img
+                          src="../../../../assets/icons/icon_clock_small.svg"
+                          alt="icon clock"
+                        />
+                        <span>Vist :</span>
+                      </p>
+                      <p class="user-description-icon-colon-detail-value">
+                        Revisited 7 times
+                      </p>
+                    </div>
+                  </mat-expansion-panel>
+  
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>User Details</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="user-description-icon-colon-detail">
+                      <p class="user-description-icon-colon-detail-heading">
+                        <img
+                          src="../../../../assets/icons/icon_user_small.svg"
+                          alt="icon user"
+                        />
+                        <span>Name :</span>
+                      </p>
+                      <p class="user-description-icon-colon-detail-value">
+                        Rishikesh Shah
+                      </p>
+                    </div>
+                    <div class="user-description-icon-colon-detail">
+                      <p class="user-description-icon-colon-detail-heading">
+                        <img
+                          src="../../../../assets/icons/icon_envlope_small.svg"
+                          alt="icon envelope"
+                        />
+                        <span>Email :</span>
+                      </p>
+                      <p class="user-description-icon-colon-detail-value">
+                        rishikeshshah@gmail.com
+                      </p>
+                    </div>
+                    <div class="user-description-icon-colon-detail">
+                      <p class="user-description-icon-colon-detail-heading">
+                        <img
+                          src="../../../../assets/icons/icon_location_small.svg"
+                          alt="icon location"
+                        />
+                        <span>Location :</span>
+                      </p>
+                      <p class="user-description-icon-colon-detail-value">
+                        Pune, Maharashtra, India
+                      </p>
+                    </div>
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04360432169!2d73.79292691226354!3d18.524603553451783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1627577216854!5m2!1sen!2sin"
+                      width="100%"
+                      height="150"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      class="user-description-map"
+                    ></iframe>
+                  </mat-expansion-panel>
+  
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Visited Pages</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="user-description-icon-colon-detail">
+                      <p class="user-description-icon-colon-detail-heading">
+                        <img
+                          src="../../../../assets/icons/icon_doc_small.svg"
+                          alt="icon doc"
+                        />
+                        <span>Source :</span>
+                      </p>
+                      <p class="user-description-icon-colon-detail-value">
+                        www.insideaiml.com
+                      </p>
+                    </div>
+                    <div class="user-description-icon-colon-detail">
+                      <p class="user-description-icon-colon-detail-heading">
+                        <img
+                          src="../../../../assets/icons/icon_envlope_small.svg"
+                          alt="icon envelope"
+                        />
+                        <span>Visited Pages :</span>
+                      </p>
+                      <p class="user-description-icon-colon-detail-value">
+                        http://ambrapalielectrotech2. local/wp-admin/<br />
+                        http://ambrapalielectrotech2. local/wp-admin/
+                      </p>
+                    </div>
+                  </mat-expansion-panel>
+  
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Technology</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="user-description-icon-colon-detail">
+                      <p class="user-description-icon-colon-detail-heading">
+                        <img
+                          src="../../../../assets/icons/icon_doc_small.svg"
+                          alt="icon doc"
+                        />
+                        <span>Ip Address :</span>
+                      </p>
+                      <p class="user-description-icon-colon-detail-value">
+                        192.167.1.1
+                      </p>
+                    </div>
+                    <div class="user-description-icon-colon-detail">
+                      <p class="user-description-icon-colon-detail-heading">
+                        <img
+                          src="../../../../assets/icons/icon_doc_small.svg"
+                          alt="icon doc"
+                        />
+                        <span>OS/Device :</span>
+                      </p>
+                      <p class="user-description-icon-colon-detail-value">
+                        Windows 10
+                      </p>
+                    </div>
+                    <div class="user-description-icon-colon-detail">
+                      <p class="user-description-icon-colon-detail-heading">
+                        <img
+                          src="../../../../assets/icons/icon_doc_small.svg"
+                          alt="icon doc"
+                        />
+                        <span>Browser :</span>
+                      </p>
+                      <p class="user-description-icon-colon-detail-value">Chrome</p>
+                    </div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+  
+        <ng-template #quickResponseTemplate>
+          <div class="live-chat__sidebar-tabs-content">
+            <div class="live-chat__sidebar-tabs-content-quick-responses">
+              <p class="quick-responses-title">
+                You can drag and drop the predefined messages from above dropdown
+              </p>
+              <div _ngcontent-rpp-c18="" class="admin-header__search">
+                <img
+                  src="../../../../assets/icons/icon_search.svg"
+                  alt="search"
+                  class="admin-header__search-icon"
+                />
+                <input
+                  type="text"
+                  placeholder="Search questions, topics"
+                  class="admin-header__search-input"
+                />
+              </div>
+  
+              <p class="quick-responses-expand-btn">
+                <span class="link">Expand All</span>
+              </p>
+  
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>Welcome Messages</mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <p class="quick-responses-msg">Hi there! How may I help you?</p>
+                  <p class="quick-responses-msg">Hi there! Welcome to customer support</p>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>Customer Support</mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <p class="quick-responses-msg">Hi there! How may I help you?</p>
+                  <p class="quick-responses-msg">Hi there! Welcome to customer support</p>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+          </div>
+        </ng-template>
+  
+  
+  
+  
+      </div>
+    </div>
+  </section>

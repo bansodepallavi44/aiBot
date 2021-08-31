@@ -1,0 +1,137 @@
+<div class="boat-training-section">
+  <div class="boat-training-section__header">
+    <h3 class="boat-training-section__heading">Bot Training</h3>
+    <div class="boat-training-section__bugttons">
+      <button mat-button class="bttn bttn-with-icon color-secondary">
+        <svg id="Iconly_Light_Paper" data-name="Iconly/Light/Paper" xmlns="http://www.w3.org/2000/svg" width="24"
+          height="24" viewBox="0 0 24 24">
+          <g id="Paper" transform="translate(3.5 2)">
+            <path id="Stroke_1" data-name="Stroke 1"
+              d="M10.488,0H3.835A3.82,3.82,0,0,0,0,3.729V14.442a3.828,3.828,0,0,0,3.742,3.911h8.081a3.887,3.887,0,0,0,3.729-3.911V5.276Z"
+              transform="translate(0.75 0.762)" fill="none" stroke="#f27e2c" stroke-linecap="round"
+              stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" />
+            <path id="Stroke_3" data-name="Stroke 3" d="M0,0V2.909A2.574,2.574,0,0,0,2.568,5.484H5.323"
+              transform="translate(10.975 0.75)" fill="none" stroke="#f27e2c" stroke-linecap="round"
+              stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" />
+            <path id="Stroke_5" data-name="Stroke 5" d="M5.4.5H0" transform="translate(5.388 12.858)" fill="none"
+              stroke="#f27e2c" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+              stroke-width="1.5" />
+            <path id="Stroke_7" data-name="Stroke 7" d="M3.356.5H0" transform="translate(5.387 9.106)" fill="none"
+              stroke="#f27e2c" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+              stroke-width="1.5" />
+          </g>
+        </svg>
+        <span>Upload excel document</span>
+      </button>
+      <a mat-button class="bttn bttn-secondary bttn-with-icon" routerLink="/admin/bot/training/{{currentBot}}/add">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <g id="Group_1601" data-name="Group 1601" transform="translate(-1622 -196)">
+            <rect id="Rectangle_489" data-name="Rectangle 489" width="24" height="24" transform="translate(1622 196)"
+              fill="none" />
+            <path id="Path_2396" data-name="Path 2396" d="M6430,2934.762v13.772" transform="translate(-4796 -2734.077)"
+              fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5" />
+            <path id="Path_2397" data-name="Path 2397" d="M0,0V13.772"
+              transform="translate(1640.886 207.571) rotate(90)" fill="none" stroke="#fff" stroke-linecap="round"
+              stroke-width="1.5" />
+          </g>
+        </svg>
+        <span>Add New Question</span>
+      </a>
+    </div>
+  </div>
+  <div class="boat-training-section__search">
+    <div class="boat-training-section__searchDrop">
+      <mat-form-field class="GT" appearance="outline">
+        <mat-label>Show Questions</mat-label>
+        <mat-select name="endCount" value="100" #endCount (selectionChange)="setEndLimit(endCount.value)">
+          <mat-option value="100">100</mat-option>
+          <mat-option value="200">200</mat-option>
+          <mat-option value="300">300</mat-option>
+          <mat-option value="400">400</mat-option>
+          <mat-option value="500">500</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="boat-training-section__searchInput">
+      <mat-form-field appearance="outline">
+        <mat-label>Search Questions</mat-label>
+        <input matInput type="search" #searchInput (keyup)="searchQuestion(searchInput.value)"
+          (search)="searchQuestion(searchInput.value)" placeholder="Enter question or response keyword to search" />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="boat-training-section__table table">
+    <table class="section-settings__table">
+      <thead>
+        <tr>
+          <th>
+            <span class="app-checkbox">
+              <input type="checkbox" (click)="checkBoxSelectAll($event)" id="allUSersSelect" />
+              <label for="allUSersSelect"></label>
+            </span>
+          </th>
+          <th>Question</th>
+          <th width="20%">Response</th>
+          <th class="text-center">Feedback</th>
+          <th>Feature</th>
+          <th class="text-center">Category</th>
+          <th class="text-center">NTQA</th>
+          <th width="40px" class="text-center">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <svg id="Component_80_1" data-name="Component 80 – 1" xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" viewBox="0 0 24 24">
+                <g id="Group_985" data-name="Group 985" transform="translate(24) rotate(90)">
+                  <rect id="Rectangle_347" data-name="Rectangle 347" width="24" height="24" fill="none" />
+                  <g id="Group_972" data-name="Group 972" transform="translate(4 10)">
+                    <circle id="Ellipse_225" data-name="Ellipse 225" cx="2" cy="2" r="2" />
+                    <circle id="Ellipse_226" data-name="Ellipse 226" cx="2" cy="2" r="2" transform="translate(12)" />
+                    <circle id="Ellipse_227" data-name="Ellipse 227" cx="2" cy="2" r="2" transform="translate(6)" />
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <img src="../../../../assets/icons/icon_delete.svg" alt="icon delete" class="mat-menu-item__icon" />
+                <span>Delete Users</span>
+              </button>
+            </mat-menu>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let question of questions;index as i" style="cursor: pointer;"
+          (click)="editTrainData(question['id'])">
+          <td>
+            <span class="app-checkbox" (click)="checkBoxClick($event)">
+              <input type="checkbox" id="user-{{i}}" />
+              <label for="user-{{i}}"></label>
+            </span>
+          </td>
+          <td>{{question['question']}}</td>
+          <td [innerHTML]="question['response']"></td>
+          <td class="text-center">
+            <mat-slide-toggle class="color--green"></mat-slide-toggle>
+          </td>
+          <td>
+            <ul class="boat-training-section__features-list">
+              <li>Enrollment</li>
+              <li>Live</li>
+            </ul>
+          </td>
+          <td class="text-center">
+            <span class="app-badge badge--sky">{{question['category']}}</span>
+          </td>
+          <td class="text-center">
+            <span class="app-badge badge--sky">20</span>
+          </td>
+          <td class="section-settings__table-actions text-center">
+            <span class="section-settings__table-actions-icon" (click)="deleteTrainData($event,question['id'])">
+              <img src="../../../../assets/icons/icon_delete.svg" alt="icon delete" /></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

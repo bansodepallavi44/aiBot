@@ -1,0 +1,165 @@
+.onboarding-container {
+    display: flex;
+    height: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    .onboarding-form-section {
+        width: 55%;
+        @include flex-center;
+        &__inner {
+            max-width: 500px;
+            margin: auto;
+            padding: 40px 15px;
+        }
+        &__logo {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            @media screen and (max-width: 1600px) {
+                max-width: 150px;
+            }
+        }
+        &__form {
+            text-align: center;
+            &-heading {
+                font-size: 24px;
+                color: $c-gray;
+                margin-bottom: 14px;
+                margin-top: 45px;
+                @media screen and (max-width: 1600px) {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                    margin-top: 30px;
+                }
+            }
+            &-suggestion {
+                font-size: 16px;
+                color: $c-gray;
+                margin-bottom: 35px;
+                @media screen and (max-width: 1600px) {
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                }
+            }
+            &-remember {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                font-size: 14px;
+            }
+            &-next-action {
+                padding: 15px 0;
+                font-size: 14px;
+            }
+        }
+        &__or-seprator {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+            &::before {
+                content: "";
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                border-top: 1px solid $c-gray;
+            }
+            &::after {
+                content: "";
+                width: 50px;
+                height: 100%;
+                background-color: $c-white;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            &::before,
+            &::after {
+                z-index: -1;
+            }
+        }
+        .bttn {
+            width: 100%;
+        }
+        &__buttons {
+            button {
+                margin-bottom: 15px;
+            }
+        }
+        &__button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                margin-right: 8px;
+            }
+        }
+    }
+    .onboarding-vector-section {
+        width: 45%;
+        background-color: rgba($c-secondary, 0.1);
+        // color: $c-white;
+        // background-image: url("../../../assets/images/onboarding-dots.png"),
+        //   url("../../../assets/images/onboarding-dots.png");
+        background-repeat: no-repeat;
+        // background-position: -52px 22px, calc(100% + 48px) calc(100% + 35px);
+        // background-size: 150px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        // @media screen and (max-width: 1600px) {
+        //   background-position: -32px 10px, calc(100% + 32px) calc(100% + 18px);
+        //   background-size: 100px;
+        // }
+        &__carousel {
+            width: 100%;
+            img.onboarding-vector-section__carousel-image {
+                width: auto;
+                max-width: 100%;
+                display: inline;
+                @media screen and (max-width: 1600px) {
+                    max-width: 300px;
+                }
+            }
+            &-text {
+                max-width: 470px;
+                margin: 80px auto 0;
+                h2 {
+                    font-size: 20px;
+                    margin-bottom: 1.2em;
+                }
+                @media screen and (max-width: 1600px) {
+                    font-size: 16px;
+                    // max-width: 320px;
+                    margin-top: 50px;
+                }
+            }
+            .owl-theme .owl-dots {
+                margin-top: 40px;
+                @media screen and (max-width: 1600px) {
+                    margin-top: 20px;
+                }
+                .owl-dot {
+                    span {
+                        width: 66px;
+                        height: 4px;
+                        margin: 5px 4px;
+                        transition: 0.3s all ease-in-out;
+                        background-color: rgba($c-secondary, 0.2);
+                        @media screen and (max-width: 1600px) {
+                            width: 50px;
+                        }
+                    }
+                    &.active {
+                        span {
+                            background-color: $c-secondary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

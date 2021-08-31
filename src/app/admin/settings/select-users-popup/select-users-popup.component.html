@@ -1,0 +1,72 @@
+<div class="modal create-new-settings-popup popup--select-users">
+    <form>
+        <div class="modal-header">
+            <h4 class="create-new-settings-popup__heading flex-center">
+                <span>Select User</span>
+            </h4>
+            <a (click)="closeDialog()" class="modal-close">
+                <img src="../../../../assets/icons/icon_cross.svg" alt="icon cross" />
+            </a>
+        </div>
+        <div class="create-new-settings-popup__header">
+            <div class="section-settings__searchbar">
+                <img src="../../../../assets/icons/icon_search.svg" alt="search" class="section-settings__search-icon" />
+                <input type="text" placeholder="Search here …." class="section-settings__search-input" />
+            </div>
+
+            <div class="section-settings__filter-btn">
+                <button class="bttn bttn-secondary bttn-with-icon">
+          <img
+            src="../../../../assets/icons/Icon_Filter.svg"
+            alt="filter"
+            class="section-settings__filter-icon"
+          />
+        </button>
+            </div>
+        </div>
+        <div class="mt-modal-content mat-dialog-content add-category-content">
+            <div class="table">
+                <table class="section-settings__table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>User Id</th>
+                            <th>Email Id</th>
+                            <th>Privilege</th>
+                            <th>Department</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="app-checkbox">
+                                  <input type="checkbox" id="user-1" />
+                                   <label for="user-1"></label>
+                                  </span>
+                            </td>
+                            <td>
+                                <div class="section-settings__user d-flex">
+                                    <img src="../../../../assets/images/setting-user-pic.png" alt="user" class="section-settings__user-pic" />
+                                    <div class="section-settings__user-detail">
+                                        <span class="section-settings__user-name">{{privilege.name}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{privilege.email}</td>
+                            <td>
+                                <span class="app-badge badge--secondary admin">{{privilege.privilege</span>
+                            </td>
+                            <td>{{privilege.department}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button mat-button (click)="closeDialog()" type="button" class="bttn">
+        Cancel
+      </button>
+            <button mat-button type="submit" class="bttn bttn-secondary" (click)="editPrivilegeGroup()">Done</button>
+        </div>
+    </form>
+</div>

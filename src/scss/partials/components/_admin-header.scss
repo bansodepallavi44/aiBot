@@ -1,0 +1,98 @@
+.admin-header {
+  display: flex;
+  width: 100%;
+  background-color: $c-white;
+  border: 1px solid rgba($c-gray, 0.4);
+
+  &__left {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 24px 15px 40px;
+    border-right: 1px solid rgba($c-gray, 0.4);
+  }
+
+  &__right {
+    min-width: 226px;
+    padding: 10px 20px;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    border: 1px solid #70707033;
+    border-radius: 5px;
+    padding-left: 16px;
+    max-width: 490px;
+    width: 100%;
+
+    &-input {
+      padding: 10px;
+      font-size: 14px;
+      color: $c-gray;
+      border: none;
+      outline: none;
+      width: 100%;
+      min-height: 38px;
+
+      &::placeholder {
+        color: rgba($c-gray, 0.4);
+      }
+    }
+  }
+
+  &__notification {
+    @include flex-center;
+
+    &-bell {
+      position: relative;
+      line-height: 1;
+    }
+
+    &-count {
+      position: absolute;
+      background: $c-secondary;
+      width: 16px;
+      height: 16px;
+      top: -4px;
+      right: -4px;
+      border-radius: 50%;
+      border: 2px solid $c-white;
+      color: $c-white;
+      font-size: 10px;
+      line-height: 1;
+
+      @include flex-center;
+    }
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &-pic {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+
+    &-detail {
+      color: $c-gray;
+      user-select: none;
+      padding: 0px 15px;
+    }
+
+    &-name {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    &-role {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
